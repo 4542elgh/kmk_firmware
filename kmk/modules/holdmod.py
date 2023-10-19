@@ -15,13 +15,14 @@ class HoldMod(HoldTap):
     tap_time = 3000
 
     def __init__(self):
-        super().__init__()
+        super().__init__(True)
         make_argumented_key(
             validator=OneShotKeyMeta,
-            names=('OS', 'ONESHOT'),
+            names=('HM', 'HOLDMOD'),
             on_press=self.osk_pressed,
             on_release=self.osk_released,
         )
+
 
     def process_key(self, keyboard, current_key, is_pressed, int_coord):
         '''Release os key after interrupting non-os keyup, or reset timeout and
@@ -39,10 +40,10 @@ class HoldMod(HoldTap):
                 if key.meta.tap_time is None:
                     tap_time = self.tap_time
                 else:
-                    tap_time = key.meta.tap_time
+                    tap_time = key.meta.tap_time 
                 state.timeout_key = keyboard.set_timeout(
                     tap_time,
-                    lambda k=key: self.on_tap_time_expired(k, keyboard),
+                    lambda k=key: self.on_tap_time_expired(k, keyboard, True),
                 )
                 continue
 
