@@ -39,7 +39,6 @@ class HoldTapKey(Key):
         tap_interrupted=False,
         tap_time=None,
         repeat=HoldTapRepeat.NONE,
-        hold_mod = False
     ):
         super().__init__(**kwargs)
         self.tap = tap
@@ -48,17 +47,16 @@ class HoldTapKey(Key):
         self.tap_interrupted = tap_interrupted
         self.tap_time = tap_time
         self.repeat = repeat
-        self.hold_mod = hold_mod
 
 
 class HoldTap(Module):
     tap_time = 300
 
-    def __init__(self, _make_key=True):
+    def __init__(self, hold_mod = False):
         self.key_buffer = []
         self.key_states = {}
-
-        if _make_key:
+        self.hold_mod = hold_mod
+        if KC.get('HT') == KC.NO:
             make_argumented_key(
                 names=('HT',),
                 constructor=HoldTapKey,
@@ -226,7 +224,7 @@ class HoldTap(Module):
 
         if self.hold_mod:
             keyboard.active_layers.clear()
-            keyboard.active_layers.insert(0, 1)
+            keyboard.active_layers.insert(0, 0)
 
     def send_key_buffer(self, keyboard):
         if not self.key_buffer:
