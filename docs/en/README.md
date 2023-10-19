@@ -25,6 +25,7 @@ Before you look further, you probably want to start with our [getting started gu
 
 - [Combos](combos.md): Adds chords and sequences
 - [Layers](layers.md): Adds layer support (Fn key) to allow many more keys to be put on your keyboard
+- [HoldMod](holdmod.md): Adds support for augmented modifier keys to act as held key when tapped.
 - [HoldTap](holdtap.md): Adds support for augmented modifier keys to act as one key when tapped, and modifier when held.
 - [Mouse keys](mouse_keys.md): Adds mouse keycodes
 - [OneShot](oneshot.md): Adds support for oneshot/sticky keys.
@@ -47,6 +48,7 @@ Before you look further, you probably want to start with our [getting started gu
 - [MediaKeys](media_keys.md): Adds support for media keys such as volume
 - [RGB](rgb.md): RGB lighting for underglow. Will work on most matrix RGB as will be treated the same as underglow.
 - [Status LED](extension_statusled.md): Indicates which layer you are on with an array of single leds.
+- [Status LED Neopixel](extension_statusled_neopixel.md): Indicates which layer you are on with a single LED. Tested on XIAO RP2040.
 
 ## Language versions
 
