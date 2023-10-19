@@ -31,6 +31,7 @@ Before you look further, you probably want to start with our [getting started gu
 
 - [Combos](combos.md): Adds chords and sequences
 - [Layers](layers.md): Adds layer support (Fn key) to allow many more keys to be put on your keyboard
+- [HoldMod](holdmod.md): Adds support for augmented modifier keys to act as held key when tapped.
 - [HoldTap](holdtap.md): Adds support for augmented modifier keys to act as one key when tapped, and modifier when held.
 - [Macros](macros.md): Adds macros.
 - [Mouse keys](mouse_keys.md): Adds mouse keycodes
@@ -55,3 +56,9 @@ Before you look further, you probably want to start with our [getting started gu
 - [MediaKeys](media_keys.md): Adds support for media keys such as volume
 - [RGB](rgb.md): RGB lighting for underglow. Will work on most matrix RGB as will be treated the same as underglow.
 - [Status LED](extension_statusled.md): Indicates which layer you are on with an array of single leds.
+- [Status LED Neopixel](extension_statusled_neopixel.md): Indicates which layer you are on with a single LED. Tested on XIAO RP2040.
+
+## Language versions
+
+- [Japanese getting started](https://github.com/KMKfw/kmk_firmware/tree/master/docs/ja/Getting_Started.md)
+- [Brazilian Portuguese](https://github.com/KMKfw/kmk_firmware/tree/master/docs/ptBR)
