@@ -3,8 +3,6 @@ New features are in 2 categories, strongly depend on XIAO RP2040 microcontroller
 
 - [XIAO] Neopixel Layer indicator with onboard XIAO RP2040 LED
 - [General] Hold Modifier with timeout (Ex. Hold Alt, then trigger Tab Tab Tab with rotary encoder)
-<br/>
-<br/>
 
 # KMK: Clackety Keyboards Powered by Python
 ![GitHub](https://img.shields.io/github/license/KMKfw/kmk_firmware)
