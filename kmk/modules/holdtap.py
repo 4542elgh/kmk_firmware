@@ -39,6 +39,7 @@ class HoldTapKeyMeta:
         tap_interrupted=False,
         tap_time=None,
         repeat=HoldTapRepeat.NONE,
+        hold_mod = False
     ):
         self.tap = tap
         self.hold = hold
@@ -46,6 +47,7 @@ class HoldTapKeyMeta:
         self.tap_interrupted = tap_interrupted
         self.tap_time = tap_time
         self.repeat = repeat
+        self.hold_mod = hold_mod
 
 
 class HoldTap(Module):
@@ -216,6 +218,10 @@ class HoldTap(Module):
         elif state.activated == ActivationType.RELEASED:
             self.ht_deactivate_tap(key, keyboard, *args, **kwargs)
             del self.key_states[key]
+
+        if self.hold_mod:
+            keyboard.active_layers.clear()
+            keyboard.active_layers.insert(0, 1)
 
     def send_key_buffer(self, keyboard):
         if not self.key_buffer:
