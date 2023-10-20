@@ -47,15 +47,6 @@ class HoldMod(HoldTap):
                 )
                 continue
 
-            if state.activated == ActivationType.PRESSED and is_pressed:
-                state.activated = ActivationType.HOLD_TIMEOUT
-            elif state.activated == ActivationType.RELEASED and is_pressed:
-                state.activated = ActivationType.INTERRUPTED
-            elif state.activated == ActivationType.INTERRUPTED:
-                if is_pressed:
-                    send_buffer = True
-                self.key_buffer.insert(0, (None, key, False))
-
         if send_buffer:
             self.key_buffer.append((int_coord, current_key, is_pressed))
             current_key = None
@@ -69,6 +60,8 @@ class HoldMod(HoldTap):
         keyboard.active_layers.clear()
         keyboard.active_layers.insert(0, 1)
 
+        if debug.enabled:
+            debug('Reach pressed')
         self.ht_pressed(key, keyboard, *args, **kwargs)
         self.ht_activate_tap(key, keyboard, *args, **kwargs)
         self.send_key_buffer(keyboard)
