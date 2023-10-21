@@ -212,7 +212,12 @@ class HoldTap(Module):
         if self.key_states[key].activated == ActivationType.PRESSED:
             # press hold because timer expired after tap time
             self.key_states[key].activated = ActivationType.HOLD_TIMEOUT
-            self.ht_activate_hold(key, keyboard, *args, **kwargs)
+            
+            if self.hold_mod:
+                self.ht_deactivate_tap(key, keyboard, *args, **kwargs)
+            else:
+                self.ht_activate_hold(key, keyboard, *args, **kwargs)
+
             self.send_key_buffer(keyboard)
         elif state.activated == ActivationType.RELEASED:
             self.ht_deactivate_tap(key, keyboard, *args, **kwargs)
